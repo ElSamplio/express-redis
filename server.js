@@ -1,6 +1,7 @@
-const express = require('express');
+import printFunction from '@elsamplio/package-test';
+import express from 'express';
+import redisClient from './redis-client.js'
 const app = express();
-const redisClient = require('./redis-client');
 
 app.get('/', (req, res) => {
     return res.send('Hello world');
@@ -20,5 +21,6 @@ app.get('/:key', async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
+    printFunction();
     console.log(`Server listening on port ${PORT}`);
 });
